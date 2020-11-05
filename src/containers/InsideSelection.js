@@ -4,6 +4,12 @@ import ApiDataConfig, {
     getCategoryListTypesArrayByCategoryPath,
 } from "../service/ApiDataConfig";
 
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 
 class InsideSelection extends Component {
@@ -39,17 +45,29 @@ class InsideSelection extends Component {
             listTypeList
         } = this.state;
         return (
-            <div className="card style_1">
+            <div className="">
 
                 { typeof listType !== "undefined" ?
-                    <select className={"form-control mb-5 mt-5"} value={ listType } onChange={ this.props.handleListTypeChange } >
+                <FormControl variant="outlined" className={" mb-5 mt-5 "}>
+                    <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={ listType }
+                        onChange={ this.props.handleListTypeChange }
+                        label="Category"
+                    >
                         {
                             listTypeList.map( function ( value , index ){
-                                return ( <option   key={index} value={value}    >{value}</option> );
+                                return ( <MenuItem  key={index} value={value} >{value}</MenuItem> );
                             })
                         }
-                    </select> : null
+                    </Select>
+                </FormControl>
+
+                    : null
                 }
+
 
             </div>
         );

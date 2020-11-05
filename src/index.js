@@ -5,17 +5,29 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-    BrowserRouter ,
+    BrowserRouter, Route, Switch,
 } from "react-router-dom";
-import { Provider } from "react-redux";
+import DataListView from "./containers/DataListView";
+import ApiDataConfig from "./service/ApiDataConfig";
 
 
 ReactDOM.render(
-    <Provider>
+
         <BrowserRouter >
-            <App />
+
+            {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+            <Switch>
+                <Route path="/:category/:listType"  >
+                    <App />
+                </Route>
+                <Route path="/" exact >
+                    <App category={ ApiDataConfig.Default.Category } listType={ ApiDataConfig.Default.ListType } />
+                </Route>
+            </Switch>
+
         </BrowserRouter>
-    </Provider>
+
     ,
   document.getElementById('root')
 );

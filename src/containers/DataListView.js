@@ -4,6 +4,8 @@ import Card from "./Card";
 import { withRouter } from "react-router-dom";
 import ApiDataConfig ,{  getCategoryPathList,  getCategoryListTypesArrayByCategoryPath, isInsideSelectionAllowed } from "../service/ApiDataConfig";
 import InsideSelection from "./InsideSelection";
+import { Box, Button , CircularProgress } from '@material-ui/core';
+
 
 
 function getCategoryPath( props ){
@@ -136,7 +138,7 @@ class DataListView extends Component {
         } = this.state;
         return (
             <div>
-                { initialSetupFinished === false  ? <p>Loading</p>  :
+                { initialSetupFinished === false  ? <CircularProgress color="secondary" />  :
                        <div>
                            { inValidListType && !loading ? <p>{listType} is invalid! Please reselect list type</p> : null }
 
@@ -156,11 +158,11 @@ class DataListView extends Component {
                                                )
                                            })}
                                        </div>
-                                       : <p>Loading</p>
+                                       : <CircularProgress color="secondary" />
                                    }
                                </div>
 
-                               : <p>Loading</p> }
+                               : <CircularProgress color="secondary" /> }
 
                        </div>
                 }
