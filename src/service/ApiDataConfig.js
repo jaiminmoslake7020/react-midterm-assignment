@@ -27,6 +27,11 @@ const ApiDataConfig = {
         TV : "tv",
         Search : "search",
     },
+    TabCategoryPathSelectedItem : {
+        movie : 0,
+        search : 1,
+        tv : 2
+    },
     Movie : {
         now_playing : "now_playing",
         popular: "popular",
@@ -43,6 +48,11 @@ const ApiDataConfig = {
         movie : "movie",
         multi : "multi",
         tv : "tv"
+    },
+    SearchMsgs : {
+        searchQueryEntered : "Please initiate search.",
+        noSearchResults : "Sorry, there were no results.",
+        emptySearccQuery : "Please enter a search"
     }
 };
 export default ApiDataConfig;

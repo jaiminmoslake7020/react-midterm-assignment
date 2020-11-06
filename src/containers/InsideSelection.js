@@ -48,22 +48,23 @@ class InsideSelection extends Component {
             <div className="">
 
                 { typeof listType !== "undefined" ?
-                <FormControl variant="outlined" className={" mb-5 mt-5 "}>
-                    <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={ listType }
-                        onChange={ this.props.handleListTypeChange }
-                        label="Category"
-                    >
-                        {
-                            listTypeList.map( function ( value , index ){
-                                return ( <MenuItem  key={index} value={value} >{value}</MenuItem> );
-                            })
-                        }
-                    </Select>
-                </FormControl>
+
+                    <FormControl variant="outlined" >
+                        <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-outlined-label"
+                            id="demo-simple-select-outlined"
+                            value={ listType }
+                            onChange={ this.props.handleListTypeChange }
+                            label="Category"
+                        >
+                            {
+                                listTypeList.map( function ( value , index ){
+                                    return ( <MenuItem  key={index} value={value} style={{textTransform:"capitalize"}} >{value.replaceAll("_"," ")}</MenuItem> );
+                                })
+                            }
+                        </Select>
+                    </FormControl>
 
                     : null
                 }

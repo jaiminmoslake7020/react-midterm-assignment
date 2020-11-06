@@ -24,6 +24,10 @@ ReactDOM.render(
                 <Route path="/" exact >
                     <App category={ ApiDataConfig.Default.Category } listType={ ApiDataConfig.Default.ListType } />
                 </Route>
+                <Route exact path="*"  >
+                    <App />
+                </Route>
+
             </Switch>
 
         </BrowserRouter>
