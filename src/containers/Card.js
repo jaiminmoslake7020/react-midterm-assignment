@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Card2 from '@material-ui/core/Card';
 import Box from '@material-ui/core/Box';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
 class Card extends Component {

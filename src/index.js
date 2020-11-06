@@ -4,33 +4,28 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-    BrowserRouter, Route, Switch,
-} from "react-router-dom";
-import DataListView from "./containers/DataListView";
+import {BrowserRouter, HashRouter, Route, Switch,} from "react-router-dom";
 import ApiDataConfig from "./service/ApiDataConfig";
 
 
 ReactDOM.render(
 
-        <BrowserRouter >
+        <HashRouter >
 
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
             <Switch>
+
                 <Route path="/:category/:listType"  >
                     <App />
                 </Route>
                 <Route path="/" exact >
                     <App category={ ApiDataConfig.Default.Category } listType={ ApiDataConfig.Default.ListType } />
                 </Route>
-                <Route exact path="*"  >
-                    <App />
-                </Route>
 
             </Switch>
 
-        </BrowserRouter>
+        </HashRouter>
 
     ,
   document.getElementById('root')

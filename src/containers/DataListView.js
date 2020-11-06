@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import { makeAnApiCall } from "../service/api";
+import {makeAnApiCall} from "../service/api";
 import Card from "./Card";
-import { withRouter } from "react-router-dom";
-import ApiDataConfig ,{  getCategoryPathList,  getCategoryListTypesArrayByCategoryPath, isInsideSelectionAllowed } from "../service/ApiDataConfig";
+import {withRouter} from "react-router-dom";
+import ApiDataConfig, {isInsideSelectionAllowed} from "../service/ApiDataConfig";
 import InsideSelection from "./InsideSelection";
-import { Box, Button , CircularProgress  } from '@material-ui/core';
+import {CircularProgress} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import Pagination from '@material-ui/lab/Pagination';
 
@@ -88,7 +88,7 @@ class DataListView extends Component {
         let value = event.target.value ;
 
 
-        this.props.history.push( '/'+this.state.category+"/"+value );
+        this.props.history.push('/'+this.state.category+"/"+value );
         this.setState( { listType : value });
         await this.getData( this.state.category  , value , this.state.query );
     }
@@ -153,11 +153,15 @@ class DataListView extends Component {
                                                             )
                                                             }
                                                         </div>
-                                                        <div className={"row justify-content-center text-center mt-5 mb-5"} >
-                                                            <div className={"col-12 text-center"} >
-                                                                <Pagination count={2} onChange={this.paginate} />
+                                                        { moviedata.length > 0 ?
+                                                            <div className={"row justify-content-center text-center mt-5 mb-5"} >
+                                                                <div className={"col-12 text-center"} >
+                                                                    <Pagination count={2} onChange={this.paginate} />
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                            : null
+                                                        }
+
                                                     </div>
                                                     : null
                                                 }

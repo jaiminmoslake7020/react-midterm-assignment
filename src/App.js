@@ -1,13 +1,9 @@
 import './App.css';
-import React, {useEffect, Component} from "react";
-import {
-    BrowserRouter as Router,
-    Switch, Link,
-    Route, useParams, withRouter
-} from "react-router-dom";
+import React, {Component} from "react";
+import {withRouter} from "react-router-dom";
 import DataListView from "./containers/DataListView";
-import ApiDataConfig ,{  getCategoryPathList,  getCategoryListTypesArrayByCategoryPath, isInsideSelectionAllowed } from "./service/ApiDataConfig";
-import {Box, Button, CircularProgress, Tabs, Tab, Paper, TextField } from '@material-ui/core';
+import ApiDataConfig, {getCategoryListTypesArrayByCategoryPath, getCategoryPathList} from "./service/ApiDataConfig";
+import {Button, CircularProgress, Paper, Tab, Tabs, TextField} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
